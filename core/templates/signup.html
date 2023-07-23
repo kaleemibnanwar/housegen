@@ -1,0 +1,47 @@
+{% extends '_base.html' %}
+{% block body %}
+  <div class="container col-xl-12 col-xxl-10 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 mb-3 text-primary">House Gen</h1>
+        <p class="col-lg-10 fs-4">An Artifical Intelligence tool to generate floor maps for your new home.</p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form class="p-4 p-md-5 border mt-5 rounded-2 bg-primary" method="post">
+          <div class="form-floating mb-3">
+            {{ form.username }}
+            <label for="floatingInput">{{ form.username.label_tag }}</label>
+          </div>
+          {% if form.username.errors %}
+            <p class="text-danger">{{ form.username.errors }}</p>
+          {% endif %}
+          <div class="form-floating mb-3">
+            {{ form.email }}
+            <label for="floatingPassword">{{ form.email.label_tag }}</label>
+          </div>
+          {% if form.email.errors %}
+            <p class="text-danger">{{ form.email.errors }}</p>
+          {% endif %}
+          <div class="form-floating mb-3">
+            {{ form.password1 }}
+            <label for="floatingPassword">{{ form.password1.label_tag }}</label>
+          </div>
+          {% if form.password1.errors %}
+            <p class="text-danger">{{ form.password1.errors }}</p>
+          {% endif %}
+          <div class="form-floating mb-3">
+            {{ form.password2 }}
+            <label for="floatingPassword">{{ form.password2.label_tag }}</label>
+          </div>
+          {% if form.password2.errors %}
+            <p class="text-danger">{{ form.password2.errors }}</p>
+          {% endif %}
+          {% csrf_token %}
+          <button class="w-100 btn btn-lg btn-light" type="submit">Sign up</button>
+          <hr class="my-4">
+          <small class="text-light">By clicking Sign up, you agree to the terms of use.</small>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock body %}
